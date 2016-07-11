@@ -1,11 +1,12 @@
 $(document).ready(function(){
 
-	var blocks = $('.block');
+	var blocks = $('.block'),
+		mycolors = ['#E91E63', '#303F9F', '#2196F3', '#4CAF50', '#009688', '#FFC107', '#00BCD4', '#5D6D7E', '#884EA0', '#F8BBD0', '#F44336', '#CDDC39'],
+		colors = [],
+		active = 0,
+		points = 12,
+		moves = 0;
 
-	console.log(blocks);
-
-	var mycolors = ['#EC7063', '#BB8FCE', '#7FB3D5', '#48C9B0', '#52BE80', '#F7DC6F', '#F0B27A', '#5D6D7E', '#884EA0', '#F5B7B1', '#6C3483', '#1D8348'];
-	var colors = [];
 
 	function createMemoBlocks() {
 		for (var i = 0; i < mycolors.length; i++) {
@@ -18,13 +19,8 @@ $(document).ready(function(){
 		}
 		shuffle(colors);
 		for (var i = 0; i < colors.length; i++) {
-			console.log(colors[i]);
-			console.log(colors[i].color);
-			console.log(blocks[i]);
-			$(blocks[i]).data('color', colors[i].color).data('id', colors[i].id);
-			console.log(blocks[i]);
+			$(blocks[i]).attr('data-color', colors[i].color).attr('data-id', colors[i].id);
 		}
-
 	}
 
 	function shuffle(array) {
@@ -38,26 +34,48 @@ $(document).ready(function(){
 		    array[currentIndex] = array[randomIndex];
 		    array[randomIndex] = temporaryValue;
 	    }
-
 	    return array;
 	}
 
-
 	createMemoBlocks();
-	console.log(colors);
-
 	
 
-
 	blocks.hover(function() {
-		$(this).toggleClass('active');
+		$(this).toggleClass('ready');
 	  }, function() {
-	  	$(this).toggleClass('active');
+	  	$(this).toggleClass('ready');
 	  }
 	);
 
 	blocks.on('click', function(){
-		$(this).toggleClass('active').css('background-color', $(this).data('color'));
+		$(this).toggleClass('ready').toggleClass('active').css('background-color', $(this).data('color'));
+		active += 1;
+		moves =+ 1;
+		if (active === 2) {
+			if ($('.active').eq(0).data('id') === $('.active').eq(1).data('id')) {
+				setTimeout(hit, 500);
+				active = 0;
+				points += 1;
+			}
+			else {
+				setTimeout(missed, 500);
+				active = 0;
+			}
+		}
+		// if (points === 12) {
+		// 	$('#again').text('You made it! And it tooked you '+ moves +' moves. Try again and be better!');
+		// 	$('#again').toggleClass('hidden');
+		// }
+	});
 
-	})
+	
+
+	function missed() {		
+		$('.active').css('background-color', '#ffffff').toggleClass('active');
+	}
+
+	function hit() {
+		$('.active').toggleClass('active').toggleClass('gone');
+	}
+
 });

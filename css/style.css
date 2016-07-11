@@ -11,12 +11,41 @@
 	border: 1px solid black;
 	float: left;
 	margin: 10px;
+	box-sizing: border-box;
 }
 
-.active {
+.ready {
 	background-color: #F0EEEA;
 }
 
 .gone {
 	opacity: 0;
+}
+
+.active {
+}
+
+#again {
+	background-color: #F0EEEA;
+	padding: 20px;
+	border-radius: 10px;
+	border: none;
+	position: absolute;
+}
+
+.hidden {
+	opacity: 0;
+}
+
+#title {
+	font-family: sans-serif;
+	font-size: 22px;
+	transform: rotate(-90deg);
+	/*width: 40px;
+	height: 40px;*/
+	margin: 0;
+	padding: 0;
+	position: fixed;
+	bottom: 50px;
+	left: 50px;
 }
