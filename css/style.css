@@ -1,5 +1,5 @@
 #game {
-	width: 1040px;
+	width: 1032px;
 	height: auto;
 	margin: 0 auto;
 	margin-top: 50px;
@@ -14,7 +14,7 @@
 }
 
 .active {
-	background-color: grey;
+	background-color: #F0EEEA;
 }
 
 .gone {
