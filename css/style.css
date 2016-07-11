@@ -1,0 +1,22 @@
+#game {
+	width: 1040px;
+	height: auto;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+
+.block {
+	width: 150px;
+	height: 150px;
+	border: 1px solid black;
+	float: left;
+	margin: 10px;
+}
+
+.active {
+	background-color: grey;
+}
+
+.gone {
+	opacity: 0;
+}
