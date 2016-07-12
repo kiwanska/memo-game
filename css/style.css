@@ -18,9 +18,13 @@ body {
 	box-sizing: border-box;
 }
 
-.ready {
+.block:hover {
 	background-color: #F0EEEA;
 }
+
+/*.ready {
+	background-color: #F0EEEA;
+}*/
 
 .gone {
 	opacity: 0;
