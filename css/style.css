@@ -1,6 +1,10 @@
+body {
+	text-align: center;
+}
+
 #game {
 	width: 1032px;
-	height: auto;
+	height: 700px;
 	margin: 0 auto;
 	margin-top: 50px;
 }
@@ -30,7 +34,24 @@
 	padding: 20px;
 	border-radius: 10px;
 	border: none;
-	position: absolute;
+	margin: 0 auto;
+	position: relative;
+	bottom: 500px;
+}
+
+#again:focus {
+	outline: none;
+}
+
+#again:active {
+	background-color: #F8BBD0;
+	color: #ffffff;
+}
+
+#again:hover {
+	background-color: #E91E63;
+	color: #ffffff;
+	cursor: pointer;
 }
 
 .hidden {
@@ -39,13 +60,12 @@
 
 #title {
 	font-family: sans-serif;
-	font-size: 22px;
+	font-size: 32px;
 	transform: rotate(-90deg);
-	/*width: 40px;
-	height: 40px;*/
 	margin: 0;
 	padding: 0;
 	position: fixed;
-	bottom: 50px;
-	left: 50px;
+	bottom: 160px;
+	left: -30px;
+	color: #F0EEEA;
 }
